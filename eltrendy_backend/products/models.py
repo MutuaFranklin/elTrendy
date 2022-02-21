@@ -56,14 +56,14 @@ class Product(models.Model):
             else:
                 return ''
 
-    def make_thumbnail(self, image, size=(300,200)):
-        img = image.open(image)
+    def make_thumbnail(self, image, size=(500,300)):
+        img = Image.open(image)
         img.convert('RGB')
         img.thumbnail(size)
 
         thumb_io = BytesIO()
         img.save(thumb_io, 'JPEG', quality=85)
-        thumb_io  = File(thumb_io, name=image.name)     
+        thumbnail  = File(thumb_io, name=image.name)     
 
         return thumbnail
 
