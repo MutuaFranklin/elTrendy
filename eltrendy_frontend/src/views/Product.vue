@@ -1,24 +1,27 @@
 <template>
 <div class="page-product">
     <div class="columns is-multiline">
-        <div class="column is-9">
+        <div class="column is-8">
             <figure class="image mb-6">
-                <img v-bind:src="product.get_image" alt="">
+                <img v-bind:src="product.get_image" alt="" >
             </figure>
 
-            <h3 class="is-size-4">{{product.name}}</h3>
-            <p class="is-size-6 has-text-grey">${{product.price}}</p>
+            <h5 class="is-size-6">{{product.name}}</h5>
+            <p>{{product.description}}</p>
         </div>
         <div class="column is-3">
             <h2 class="subtitle">Information</h2>
             <p><strong>Price</strong>: ${{product.price}}</p>
 
             <div class="field has-addons mt-6">
-                <input type="number" class="input" min="1" v-model="quantity">
+                <div class="control">
+                    <input type="number" class="input" min="1" v-model="quantity">
+                </div>
+                <div class="control">
+                    <a class="button is-dark">Add to cart</a>
+                </div>
             </div>
-            <div class="control">
-                <a class="button is-dark">Add to cart</a>
-            </div>
+            
         </div>
     </div>
 </div>

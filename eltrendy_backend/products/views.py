@@ -17,7 +17,7 @@ class LatestProductList(APIView):
 class ProductDetail(APIView):
     def get_object(self, category_slug, product_slug):
         try:
-            Product.objects.filter(category__slug = category_slug).get(slug=product_slug)
+            return Product.objects.filter(category__slug=category_slug).get(slug=product_slug)            
         except Product.DoesNotExist:
             raise Http404
 
@@ -26,7 +26,7 @@ class ProductDetail(APIView):
         serializer = ProductSerializer(product)
         return Response(serializer.data)
 
-        
+
 
     
 
