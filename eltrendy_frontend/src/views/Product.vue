@@ -59,9 +59,20 @@ export default{
                 console.log(error)
             })
            
+        },
+        addToCart() {
+            console.log('addToCart')
+            if (isNaN(this.quantity) || this.quantity < 1) {
+                this.quantity = 1
+            }
+            const item = {
+                product: this.product,
+                quantity: this.quantity
+            }
+
+            this.$store.commit('addToCart', item)
+        
         }
-        
-        
     }
 }
 
