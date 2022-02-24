@@ -59,7 +59,11 @@ export default {
   },
   beforeCreate(){
     this.$store.commit('initializeStore')
-  }
+  },
+
+  mounted(){
+    this.cart = this.$store.state.cart
+  },
 }
 </script>
 
